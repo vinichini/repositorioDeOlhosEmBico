@@ -1,0 +1,1347 @@
+/* 
+Eliminar formatos default
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000; 
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;   
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------       ANIMAÇÃO         -------------------------------------------------------------
+-------------------------------------------------        INICIAL  ------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------*/
+.intro {                        /*para que as percentagens dos elementos do documento sejam sempre relativas ao ecrã - viewport*/
+  height: 100vh;         /*vh (viewport height) - para cobrir o ecrã vrticalmente*/
+width: 100vw;             /*vw (viewport width) - para cobrir o ecrã horizontalmente*/
+z-index: 20;
+}
+  .intro .rato, .intro .mapaMundo, .intro .calendario, .intro .pesquisa, .intro .viagem{    /*meter todas as divs sobrepostas com iguais formatos*/
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  }
+
+.intro .mapaMundo{                                              /*sendo sobrepostas o z-index vai crescendo da primeira div a aparecer para a última*/
+  z-index: 1;
+}
+.intro .calendario {
+  z-index:2;
+  opacity: 0;
+}
+.intro .pesquisa {
+  z-index: 3;
+  opacity: 0;
+}
+.intro .viagem{
+ background-color: white;
+ background-size: contain;
+  z-index: 4;
+  opacity: 0;
+
+}
+ .setaRato {                                   /*a seta rato estará sempre visivel, tendo um z-index superior*/
+    position: absolute;
+    top:18vw;
+    left: 41vw;
+    height: 20px;
+    width: 20px;
+    z-index: 6;
+  }
+
+
+
+
+ /*Primeira Div a aparecer-mapa*/
+.intro img.mapa{                                 
+  position: absolute;
+   display: block;
+   margin: auto;
+  width: 100%;
+  height: 100%;
+  
+     }
+ 
+.intro .pin {                                            /*opacity 0 para poder aparecer depois, e com posição superior para poder cair*/
+  position: absolute;
+  opacity: 0;
+  height: 50px; 
+  right: 126px;;
+  bottom:325px;
+  z-index: 5;
+}
+.intro .circulo{                                     /*opacity 0 para poder aparecer depois,  e tamanho nulo para o efeito de circulo a aumentar*/       
+position: absolute;
+height: 0;
+width: 0;
+border: 2px solid blue;
+border-radius: 50%;
+right: 141px;
+bottom: 270px;
+opacity: 0;
+z-index:4;
+    }
+
+/*Segunda Div - calendário*/
+.intro img.cal {
+    position: absolute;
+   display: block;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+ .intro .rato .maoRato {                                 /* a mão do rato tem opacity 0. Só vai aparecer em algumas fases*/
+    position: absolute;
+    top:40px;
+    left: 435px;
+    height: 40px;
+    width: 40px;
+     opacity: 0;
+      z-index: 6;
+  }
+.intro .dataActual {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border: 2px solid blue;
+  left:326px;
+  bottom: 261px;
+  
+}
+.intro .dataEscolhida {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 5px solid green;
+  border-radius: 50%;
+  right: 705px;
+  bottom: 25px;
+  opacity:0;
+}
+/*Terceira Div - pesquisa*/
+
+.intro .caixaPesquisa {
+  position:relative;
+  height: 70px;
+  width: 270px;
+  bottom: 400px;
+  left:360px;
+
+}
+.intro .escondeTexto {
+  position: absolute;
+  height: 25px;
+  width: 340px;
+  top: 25px;
+  left: 45px;
+  background-color: white;
+
+}
+.intro .texto, .intro .texto2 {
+  position: absolute;
+  top:26px;
+  left: 50px;
+  width: 320px;
+  }
+  .intro .texto2 {
+    opacity: 0;
+  }
+ .intro .bordaBotao {
+  position: absolute;
+  height: 35px;
+  width: 153px;
+  top: 458px;
+  left: 678px;
+  border: 2px solid rgb(153, 153, 102);
+  opacity: 0;
+  }
+/*Quarta Div - viagem*/
+.intro .mochila, .intro .botas, .intro .roupa, .intro .havaianas, .intro .escova, .intro .calcoes, .intro .passaporte, .intro .caderno{
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  bottom: 700px;
+  left: 350px;
+  z-index: 6;
+}
+.intro .mochila{
+  width: 150px;
+  height: 150px;
+    left: 480px;
+}
+.intro .taxi{ 
+  position: absolute;
+    height: 250px;
+  width: 400px;
+bottom: 150px;
+right: 1430px;
+z-index: 7;
+
+}
+.intro .cenario{
+  position: absolute;
+  height: 700px;
+  width:3000px;
+  right:500px;
+  top: 100px;
+  z-index: 5;
+  display: none;
+ }
+.intro .arvores{
+   background: url("../library/images/imagesInicio/arvore.png");
+   background-size: 150px 150px;
+   z-index: 20;
+   height: 295px;
+   width: 2100px;
+   position: absolute;
+   top: 30px;
+   left: 2150px;
+}
+.intro .estrada{
+   position: absolute;
+    height: 120px;
+  width:3700px;
+bottom: 250px;
+left: 2150px;
+ z-index: 1;
+}
+.intro .aeroporto{
+   position: absolute;
+  height: 400px;
+  width:750px;
+  bottom: 370px;
+  left: 4500px;
+  z-index: 1;
+
+
+
+}
+.intro .aviao{
+  position: absolute;
+  width: 150px;
+  height: 100px;
+   bottom: 330px;
+  left: 4800px;
+  transform: rotate(10deg);
+}
+.intro .exit{
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  z-index: 15;
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------       MENU HEADER --------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------*/
+/** {
+    box-sizing: border-box;
+}*/
+.menuLinks h1{
+  position: relative;
+  bottom: 0px;
+  color: white;
+  text-align: center;
+ top:20px;
+ font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 1000;
+  line-height: 26.4px;
+}
+.menuLinks h3 {
+  position: relative;
+  bottom: 0px;
+  color: white;
+  text-align: center;
+  top: 25px;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 24px;
+   font-style: italic;
+  font-variant: normal;
+  font-weight: 300;
+  line-height: 26.4px;
+
+}
+#o1{                                    /*meter o "o" em forma de bico*/
+  font-size: 30%;
+  display: inline-block;
+  transform:scale(8,2);
+  position: relative;
+  bottom: 5px;
+  margin-left: 23px;
+  margin-right: 17px;
+}
+#o2{
+    font-size: 30%;
+  display: inline-block;
+  transform:scale(8,2);
+  position: relative;
+  bottom: 5px;
+  margin-left: 20px;
+  margin-right: 17px;
+
+}
+ul.menuLinks {
+    position: static;                            /*menu- formato do cabeçalho principal*/
+    list-style-type: none;
+    height: 140px;
+   background:linear-gradient(to right, #ff6600, #ffd1b3);
+    overflow: hidden;
+    color: white;
+    text-align: center;
+}
+
+.login{
+  position: absolute;
+   right: 25px;
+   top:10px;
+}
+header .login form {
+    float: left;
+
+}
+
+header .login form input {
+    width: 140px;
+    height: 30px;
+    padding: 0px 10px;
+    margin-right: 10px;
+    border: none;
+    background-color: #ccc;
+    font-family: arial;
+    font-size: 14px;
+    color: #111;
+    line-height: 30px;
+}
+
+header .login button {
+    float: right;
+    width: 60px;
+    height: 30px;
+    margin-right: 10px;
+    border: none;
+    background-color: #f3f3f3;
+    font-family: arial;
+    font-size: 14px;
+    color: #111;
+    cursor: pointer;
+}
+header .login a button {
+  position: relative;
+  left: 5px;
+}
+header .login form button:hover, header .login a button:hover {
+    background-color: #ccc;
+}
+header .login a {
+    display: block;
+    width: 60px;
+    height: 30px;
+    border: none;
+    float: right;
+    color: #111;
+    font-family: arial;
+    font-size: 16px;
+    line-height: 63px;
+    cursor: pointer;
+}
+
+.menuLinks li {
+    float: left;                /*menu- deslocar para a esquerda*/
+}
+.menuLinks li a,.menuLinks .smenu{        
+    position: relative;                                /*menu- formato dos itens*/
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    top: 40px;  
+    width: 100px;
+    box-shadow: 0 0 15px #000;
+    background-color: rgba(25, 82, 52, 0.98);
+
+   
+
+}
+
+ .menuLinks .active {                                        /*menu- formato do item da própria página*/
+
+    float:right;
+}
+
+
+.menuLinks .smenu-info {                                       /*menu- formato do submenu e a não aparecer logo*/
+    display: none;
+    position: absolute;
+    z-index: 1;
+    height: 10%;
+    top: 100px;
+}
+.menuLinks li.submenu {                                         /*menu- formato do item onde aparece o submenu*/
+    display: inline-block;
+}
+.menuLinks .smenu-info a {                                  /*formato do submenu*/
+    color: #f7f2f3;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    width: 100px;
+    bottom: 14px;     
+    border-radius: 0; 
+}
+.menuLinks li a:hover:not(.active) {                        /*efeito do hover nos links do menu que não são a própria página*/
+    background-color: #ff6a06;
+}
+.menuLinks .submenu:hover .smenu-info {           /*fazer aparecer o submenu no hover*/
+    display: block;
+    z-index: 5;
+}
+.welcome{
+  position: relative;
+  color:black;
+  font-family: arial;
+  right: 90px;
+  top: 25px;
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------HOME--------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------*/
+
+
+.balao {
+  margin: 40px;
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: auto;
+  background-color: lightyellow;
+  border: 8px solid #666;
+  border-radius: 30px;
+  bottom: 60px;
+  left: 40px;
+    
+ }
+
+
+.balao:after {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 38px;
+  right: auto;
+  top: auto;
+  bottom: -20px;
+  border: 12px solid;
+  border-color: lightyellow transparent transparent lightyellow;
+}
+
+.balao:before {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 30px;
+  right: auto;
+  top: auto;
+  bottom: -40px;
+  border: 20px solid;
+  border-color: #666 transparent transparent #666;
+}
+.talktext{
+  padding: 1em;
+  text-align: left;
+  line-height: 1.5em;
+}
+.personagem {
+  position:relative;
+  width: 300px;
+  height: 300px;
+  left: 850px;
+  top: 60px;
+ 
+
+}
+#chines {
+  display: block;
+  position: absolute;
+  width:150px;
+  height: 200px;
+  right: 190px;
+top: 180px;
+ margin:auto;
+
+}
+  .plane {
+    position: relative;
+    width: 150px;
+    height: 100px;
+    right: 100px;
+    transform: rotate(15deg);
+
+     }
+
+/*-------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------SIGNUP--------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------*/
+
+.container form{
+  position: absolute;
+  top:100px;
+}
+
+.container h1{
+  text-align: center;
+  font-size: 40px;
+}
+.personagemSup {
+  position:relative;
+  width: 300px;
+  height: 300px;
+  left: 850px;
+ top: 100px;
+ }
+.balaoSup {
+  margin: 40px;
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: auto;
+  background-color: lightyellow;
+  border: 8px solid #666;
+  border-radius: 30px;
+  bottom: 60px;
+  left: 40px;
+    
+ }
+
+
+.balaoSup:after {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 38px;
+  right: auto;
+  top: auto;
+  bottom: -20px;
+  border: 12px solid;
+  border-color: lightyellow transparent transparent lightyellow;
+}
+
+.balaoSup:before {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 30px;
+  right: auto;
+  top: auto;
+  bottom: -40px;
+  border: 20px solid;
+  border-color: #666 transparent transparent #666;
+}
+.talktextSup{
+  padding: 1em;
+  text-align: left;
+  line-height: 1.5em;
+}
+
+#chinesSup {
+  display: block;
+  position: absolute;
+  width:150px;
+  height: 200px;
+ bottom: 0;
+ margin:auto;
+}
+.form-group{
+  width: 600px;
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+---------------------------------PAÍSES----ARTIGOS POR PAÍS-------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------*/
+
+
+  .smenu-infoPaises a{
+    list-style-type: none;
+    position: relative;
+    width: 50px;
+    right: 20px;
+  }
+
+.artigoPais{
+      margin: 0 auto;
+      font: 1em/1 georgia, sans-serif;
+      position: relative;
+      display: flex;
+      justify-content: center; 
+      align-items: center; 
+      width: 95%;
+      height: 50%;
+
+      
+}
+.artigoPais div img {               
+      display: block;
+      position: relative;  
+      width: 70%;
+      height:70%;
+      margin:auto;
+   
+     
+ } 
+.artigoPais div {
+    position: relative;
+    width: 200px; 
+    height: 135px;
+    margin: 3px;
+    padding: 2px 2px;
+    border: 1px solid #BFBFBF;
+    background-color: white;
+    box-shadow: 10px 10px 5px #aaaaaa;
+    transition: all 0.5s ease;
+    text-decoration: none;
+}
+.artigoPais a{
+  text-decoration: none;
+}
+#MyanmarPais .artigoPais div {                  /*ajuste da div para Myanmar devido ao elevado numero de dias*/
+    position: relative;
+    width: 320px; 
+    height: 90px;
+    margin: 5px;
+   
+    border: 1px solid #BFBFBF;
+    background-color: white;
+    box-shadow: 10px 10px 5px #aaaaaa;
+    transition: all 0.5s ease;
+}
+#myanmarPais .artigoPais span.text {
+     display: block;
+     font-size: xx-small;
+     position: relative;
+     padding: 5px 1px 1px 1px;
+      text-align: center;
+      color: black;
+      line-height: 2px;
+}
+#myanmarPais img{
+  width: 200px;
+}
+.mapaMyanmar img.mapaPais{
+  top:50px;
+}
+.artigoPais span.text {
+     display: block;
+     font-size: xx-small;
+     position: relative;
+     padding: 3px 1px 10px 1px;
+      text-align: center;
+      color: black;
+      line-height: 10px;
+      
+ }
+
+
+ .artigoPais div:hover {
+  transform: scale(1.5);
+  z-index:1;
+}
+
+
+img.mapaPais {
+  display: block;
+  position: relative;
+  margin-left:100px;
+  height: 300px;
+  width: 450px;
+  top: 40px;
+  z-index: -1;
+}
+
+
+
+.mapaCidadesTodas .pin {                                                              /* Pin no mapa por artigo - Dados comuns a todos os locais no mapa*/
+  width: 20px;
+  height: 30px;
+  position: absolute;
+  left: 15%;
+  top: 64%;
+  margin: -20px 0 0 -20px;
+}
+.nomeCidade{
+position: relative;
+padding: 10px;
+left: 50px;
+background-color: rgb(51, 123, 51);
+text-shadow: 1px 1px;
+font-family:  Arial;
+color: white;
+border-radius: 5px;
+}
+    
+.mapaCidadesTodas{                                /*uma classe igual a todos os locais no mapa com invisibilidade comum para pin e local*/
+  opacity: 0;
+  position: absolute;
+  transition: all 0.5s ease;
+}
+                              
+#mapaChiangmai {                                   /*pin e local no mapa  de acordo com o local*/
+  left: 157px;
+  top: 263px; 
+}
+#mapaBangkok {
+  left: 227px;
+  top: 418px;
+}
+#mapaYangon {
+  left: 260px;
+  top: 478px;
+}
+#mapaKinpun {
+  left: 307px;
+  top: 460px;
+}
+#mapaBago {
+  left: 277px;
+  top: 460px;
+}
+#mapaInleLake {
+  left: 287px;
+  top: 378px;
+}
+#mapaBagan {
+  left: 227px;
+  top: 358px;
+}
+#mapaMandalay {
+  left: 255px;
+  top: 328px;
+}
+#mapaHsipaw {
+  left: 307px;
+  top: 308px;
+}
+.artigoChiangmai:hover ~#mapaChiangmai {       /*pin e local no mapa a aparecer no hover de acordo com o local*/
+  opacity: 1;
+  font-size: larger;
+}
+.artigoBangkok:hover ~#mapaBangkok {
+  opacity: 1;
+  font-size: larger;
+}
+.artigoYangon:hover ~#mapaYangon {
+  opacity: 1;
+  font-size: larger;
+}
+.artigoKinpun:hover ~#mapaKinpun {
+  opacity: 1;
+  font-size: larger;
+}
+.artigoBago:hover ~#mapaBago {
+  opacity: 1;
+  font-size: larger;
+}
+.artigoInleLake:hover ~#mapaInleLake {
+  opacity: 1;
+  font-size: larger;
+}
+.artigoBagan:hover ~#mapaBagan {
+  opacity: 1;
+  font-size: larger;
+}
+.artigoMandalay:hover ~#mapaMandalay {
+  opacity: 1;
+  font-size: larger;
+}
+.artigoHsipaw:hover ~#mapaHsipaw {
+  opacity: 1;
+  font-size: larger;
+}
+.infoPais {                                      /*Informação sobre o País*/
+position: absolute;
+right:200px;
+top: 325px;
+height: 280px;
+width: 400px;
+font-style: italic;
+border-top-style:double;
+border-bottom-style:double;
+padding-top:5px;
+padding-bottom:5px;
+border-top-color:#ffa970;
+border-bottom-color:#ffa970;
+border-top-width:8px;
+border-bottom-width:8px;
+}
+.infoPais img {
+  float: right;
+  width: 200px;
+  height: 100px;
+}
+.infoPais h1{
+  color: black;
+}
+/*-------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------GET READY--------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------*/
+
+
+.informationCenter {
+  font: 1em/1 georgia, sans-serif;
+  position: relative;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  width: 70%;
+  height: 450px;
+  margin: 0 auto;
+  top:200px;
+
+}
+.inform {
+  position: relative;
+  width: 400px; 
+  height: 220px;
+  bottom:150px;
+  border-style: solid;
+  border-width: 20px 20px 0 20px;
+  border-color: white;
+  box-shadow: 0 0 15px #000;
+  padding: 10px 20px 40px 20px;
+  margin: 20px;
+}
+.inform .image {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height:100%;
+  bottom: 0;
+ }
+.inform .estores {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  height:100%;
+  transition:all 1.2s ease;
+  top:0;
+  z-index: 2;
+}
+.inform span{
+  display: inline-block;
+  position: relative;
+  bottom: 100px;
+  padding: 15px;
+  text-align: center;
+  border-style: solid;
+  border-color: white;
+  box-shadow: 0 0 15px #000;
+  color: black;
+  z-index: 1;
+  border-color: 20px solid green;
+  background-color: white;
+  width: 200px;
+ }
+
+.suporte{
+  position: relative;
+  height: 20px;
+  width: 160px;
+  z-index: -2;
+  bottom: 100px;
+  left: 30px;
+  border-left-style:double;
+ border-right-style:double;
+ border-width: 10px;
+ border-color: #6b6b47;
+}
+.inform:hover .estores {
+  bottom: 0;
+  height: 0;
+}
+.inform:hover span {
+  background-color: #337b33;
+  color: white;
+  box-shadow: 0 0 15px rgb(0, 255, 0);
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------JOURNEY---------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------*/
+
+
+.journey  {
+  position: relative;
+  height:281px;
+  width:550px;
+  margin:0 auto 10px;
+}
+.journey .artigoDiasTodos  {
+  display: none;
+  margin-left: 100px;
+}
+.journey .artigoCorrente   {
+  display: block;
+ 
+}
+.journey  .imgArtigo{
+  position:absolute;
+  height: 320px;
+  width: 350px;
+  left:100px;
+  top: 70px;
+  cursor:pointer;
+}
+.journey  .mapa {
+  position:absolute;
+  height: 320px;
+  width: 400px;
+  right: 480px;
+  top: 70px;
+  z-index:1;
+  transition:all 1.8s ease;
+}
+img.mapa:hover   {
+  transform: translate(350px, 0px) scale(1.5);
+
+}
+.titulo {
+  position: absolute;
+  font-family: Times, "Times New Roman", Georgia, serif;
+  font-size: 30px;
+  left: 180px;
+  width: 380px;
+}
+.local {
+  position: absolute;
+  text-align: center;
+  font-style: italic;
+  top: 50px;
+  left: 100px;
+}
+
+.descricao {
+  position: absolute;
+  left:460px;
+  width: 300px;
+  top:50px;
+  padding: 20px;
+}
+.botaoDia {
+  position: relative;
+  width:1150px;
+  margin: 0 auto;
+  top:120px;
+  right: 20px;
+}
+.botaoDia button{
+  width:80px;
+  background-color: #ff6904;
+  color: #ffffcc;
+  padding-right:2em;
+  cursor:pointer;
+
+}
+  button.botaocorrente{
+  transform: translateY(4px);
+  z-index: 2;
+}
+.botao button:after{
+  transform: translateY(4px);
+}
+.journey  .linkArtigo {
+  position: absolute;
+  top:345px;
+  left:480px;
+     width: 300px;
+  height: 30px;
+  text-align: center;
+  cursor: pointer;
+
+  
+}
+/*-------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------ARTICLES-------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------*/
+
+.activeArticle{
+  display: block;
+  margin: 20px 90px;
+
+}
+.activeArticle h1, .activeArticle h3{
+text-align: center;
+color: black;
+padding: 10px;
+}
+.activeArticle h3{
+  font-size: 15px;
+}
+.imgLeft, .imgRight{
+   height: 280px;
+  width: 280px;
+    padding: 5px; 
+}
+.imgLeft{
+ float: left;
+}
+.imgRight {
+  float: right;
+}
+.activeArticle .imgArtigo{
+  text-align: center;
+}
+.imgArtigo img{
+ padding: 20px 20px 40px 20px;
+  height: 420px;
+  width: 450px;
+}
+.imgArtigoMapa img{
+  height: 520px;
+  width: 100%;
+  padding-top: 30px;
+}
+textarea{
+  width: 400px;
+  height: 80px;
+  background-color: #fff;
+  resize: none;
+
+}
+
+button.comment {
+  width: 100px;
+  height: 30px;
+  background-color: #282828;
+  border: none;
+  color: #fff;
+  font-family: arial;
+  font-weight: 400;
+  cursor: pointer;
+}
+.comment-box {
+  width: 815px;
+  padding: 20px;
+  margin-bottom: 4px;
+  background-color: #fff;
+  border-radius: 4px;
+  position: relative;
+  left: 10px;
+}
+.reply-box {
+  width: 655px;
+  padding: 20px;
+  margin-bottom: 4px;
+ background-color: #ffe6f2;
+  border-radius: 4px;
+  position: relative;
+  left: 90px;
+}
+.comment-box p{
+  font-family: arial;
+  font-size: 14px;
+  line-height: 16px;
+  color: #282828;
+  font-weight: 150;
+}
+.reply-box p{
+  font-family: arial;
+  font-size: 14px;
+  line-height: 16px;
+  color: #282828;
+  font-weight: 100;
+}
+
+.edit{
+  position: absolute;
+  top: 0px;
+  right: 5px;
+}
+.edit button{
+width: 50px;
+height: 20px;
+color: #282828;
+background-color: #fff;
+opacity: 0.7;
+}
+.edit button:hover{
+opacity: 1;
+}
+.delete{
+  position: absolute;
+  top: 0px;
+  right: 60px;
+}
+.delete button{
+width: 60px;
+height: 20px;
+color: #282828;
+background-color: #fff;
+opacity: 0.7;
+}
+.delete button:hover{
+opacity: 1;
+}
+.messageLogin{
+  float: right;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------CONTACTS-------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------*/
+.form {
+    margin:10px auto;
+    max-width: 400px;
+    padding: 20px 12px 10px 20px;
+    font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+.form li {
+    padding: 0;
+    display: block;
+    list-style: none;
+    margin: 10px 0 0 0;
+}
+.form label{
+    margin:0 0 3px 0;
+    padding:0px;
+    display:block;
+    font-weight: bold;
+}
+.form input[type=text], 
+.form input[type=email],
+textarea, select{
+    box-sizing: border-box;
+    border:1px solid #BEBEBE;
+    padding: 7px;
+    margin:0px;
+    outline: none;  
+}
+.form input[type=text]:focus, 
+.form input[type=email]:focus,
+.form textarea:focus, 
+.form select:focus{
+    box-shadow: 0 0 8px #88D5E9;
+    border: 1px solid #88D5E9;
+  
+}
+.form input[type=text]:focus, 
+.form input[type=email]:focus{
+    background-color:   yellow;
+}
+.form .doisCampos{
+    width: 49%;
+}
+
+.form .campoGrande{
+    width: 100%;
+}
+.form .campoSelecciona{
+  position: relative;
+    width: 100%;
+    left: 20px;
+    bottom: 1px;
+}
+.assunto{
+   position: relative;
+    left: 20px;S
+}
+.form .campoMensagem{
+    height: 100px;
+    width: 380px;
+}
+.form input[type=submit],.form input[type=button]{
+    background: #4B99AD;
+    padding: 8px 15px 8px 15px;
+    border: none;
+    color: #fff;
+   
+}
+.form input[type=submit]:hover, .form input[type=button]:hover{
+    background: #4691A4;
+    box-shadow:none;
+
+}
+.form .obrigatorio{
+    color:red;
+}
+img.envelope {
+  position: relative;
+  width: 80px;
+  height: 50px;
+  top: 240px;
+  right: 370px;
+   z-index: -1;
+}
+/*-------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------ARTIGOS-------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------*/
+
+.paginaDoArtigo {
+  display: block;
+  position: absolute;
+  margin:20px 200px ;
+}
+.paginaDoArtigo h1, .paginaDoArtigo h4{
+  text-align: center;
+
+
+}
+img.imagemDoArtigo{
+  display: block;
+  position: relative;
+  height: 350px;
+  width: 400px;
+  margin: auto;
+}
+
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------OBRAS-------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------*/
+
+.obras {
+  display: block;
+  width: 70%;
+  margin:auto;
+  margin-top: 10%;
+}
